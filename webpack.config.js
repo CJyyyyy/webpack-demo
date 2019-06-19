@@ -7,7 +7,6 @@ module.exports = {
     entry: {
         app: './src/index.js',
     },
-    devtool: 'inline-source-map',
     devServer:{
         contentBase: './dist',
         hot: true
@@ -15,15 +14,13 @@ module.exports = {
     plugins:[
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Hot Module Management'
-        }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+            title: 'Production'
+        })
     ],
+    mode: "production",
     output:{
         filename: '[name].bundle.js',
         path: path.resolve(__dirname,'dist'),
-        publicPath: '/'
     },
     module:{
         rules:[
